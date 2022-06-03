@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="base/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body{
+            
+            background-color: #fff;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            padding-top: 100px;
+        }
+
+        a, p {
+            color: rgb(55, 55, 55);
+            text-decoration: none;
+        }
+        .container{
+           max-width: 550px; 
+           margin:auto;
+           background-color: white;
+           border-radius: 7px;
+           padding: 20px;
+           -webkit-box-shadow:2px 2px 13px -1px rgba(0, 0, 0, 0.2) ;
+           box-shadow: 2px 2px 13px -1px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>

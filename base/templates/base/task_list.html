@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    {% extends 'base/main.html' %}
+    {% block content %}
+
+
+    {% if request.user.is_authenticated %}
+    <p>welcome {{request.user|upper}}.</p>
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+    <hr>
+
+    <h1>My TODO list:</h1>
+    <a href="{% url 'task-create' %}">Add Item</a>
+
+    <form method="GET">
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form>
+
+    <table>
+        
+        <tr>
+            <th>Items:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            
+            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+        </tr>
+        {% empty %}
+        <h5>no item on the list.</h5>
+        {% endfor %}
+        
+    </table>
+
+    {% endblock content %}
+</body>
+</html>
